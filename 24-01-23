@@ -37,37 +37,40 @@ class Solution {
     }
 }
 
-3. 3Sum:
+3.Binary Tree Preorder Traversal:
 
 class Solution {
-    public List<List<Integer>> threeSum(int[] nums) {
-         List<List<Integer>> sum = new ArrayList<>();
-         Arrays.sort(nums);
-         for(int i=0; i<nums.length-2; i++){
-             if(i==0 || (i>0 && nums[i] != nums[i-1])){
-                 int a=i+1, b=nums.length-1;
-                 while(a<b){
-                     if(nums[a] + nums[b] == -1*nums[i]){
-                         sum.add(Arrays.asList(nums[i],nums[a],nums[b]));
-                         while(a<b && nums[a] == nums[a+1]) a++;
-                         while(a<b && nums[b] == nums[b-1]) b--;
-                         a++;
-                         b--;
-                     }else if(nums[a]+nums[b] < -1*nums[i])
-                     {
-                         a++;
-                     }
-                     else
-                     {
-                         b--;
-                     }
-                 }
-             }  
-        }
-        return sum;
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> a =new ArrayList<>();
+        preorder(root,a);
+        return a;
+    }
+    void preorder(TreeNode root, List<Integer> a){
+        if(root == null)
+        return;
+        a.add(root.val);
+        preorder(root.left, a);
+        preorder(root.right, a);
     }
 }
 
+4.Binary Tree Postorder Traversal:
+
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> a =new ArrayList<>();
+        postorder(root,a);
+        return a;
+    }
+    void postorder(TreeNode root, List<Integer> a){
+        if(root == null)
+        return;
+        
+        postorder(root.left, a);
+        postorder(root.right, a);
+        a.add(root.val);
+    }
+}
 
 
 
