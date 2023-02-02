@@ -1,0 +1,74 @@
+Min-Max Sum:
+
+class Result {
+    public static void miniMaxSum(List<Integer> arr) {
+        Collections.sort(arr);
+        long sum=0;
+        for(int i=0; i<arr.size(); i++){
+            sum = sum+arr.get(i);
+        }
+        long minsum = sum - arr.get(arr.size()-1);
+        long maxsum = sum - arr.get(0);
+        System.out.println(minsum+" "+maxsum);
+    }
+}
+
+Diagonal Difference:
+
+class Result {
+    public static int diagonalDifference(List<List<Integer>> arr){
+        int size = arr.get(0).size();
+        int sum = 0;
+        for(int i=0; i<size; i++){
+            for(int j=0; j<size; j++){
+                if(i==j){
+                    sum = sum + arr.get(i).get(j);
+                }
+            }
+        }
+        int i=0;
+        int j= size-1;
+        int sum1 = 0;
+        while(i<size && j > -1){
+            sum1= sum1 + arr.get(i).get(j);
+            i = i+1;
+            j = j-1;
+        }
+        int ans = Math.abs(sum-sum1);
+        return ans;
+    }
+}
+
+Lonely Integer:
+
+class Result {
+    public static int lonelyinteger(List<Integer> a) {
+        Set<Integer> set = new HashSet<Integer>();
+        int lonelyNum = 0;
+        for(Integer i : a){
+            if(!set.contains(i)){
+                set.add(i);
+            }
+            else{
+                set.remove(i);
+            }
+        }
+        for(Integer s:set){
+            lonelyNum = s;
+        }
+        return lonelyNum;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
