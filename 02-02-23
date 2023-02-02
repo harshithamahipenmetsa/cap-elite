@@ -60,6 +60,26 @@ class Result {
     }
 }
 
+Sparse Array:
+
+class Result {
+    public static List<Integer> matchingStrings(List<String> strings, List<String> queries) {
+        List<Integer> result = new ArrayList<Integer>();
+        for(String query:queries)
+        {
+            int count = 0;
+            for(String string : strings)
+            {
+                if(query.equals(string))
+                {
+                    count++;
+                }
+            }
+            result.add(count);   
+        }
+        return result;
+    }
+}
 
 
 
