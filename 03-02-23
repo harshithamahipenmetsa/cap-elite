@@ -7,5 +7,24 @@ class Result {
     }
 }
 
+mock Test:
+1.Find the median:
+Collections.sort(arr);
+
+    return Math.round(arr.get(arr.size()/2));
+
+2. Flipping the matrix:
+
+n = len(matrix)
+
+    s = 0
+
+    for i in range(n//2):
+
+        for j in range(n//2):
+
+            s += max(matrix[i][j], matrix[i][n-j-1], matrix[n-i-1][j], matrix[n-i-1][n-j-1])
+
+    return s
 
 
