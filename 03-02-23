@@ -1,0 +1,11 @@
+Flipping bits:
+
+class Result {
+    public static long flippingBits(long n) {
+        long num = (1L << 32)-1;
+        return n^num;
+    }
+}
+
+
+
