@@ -1,3 +1,5 @@
+Scales by match:
+
 class Result {
     public static int sockMerchant(int n, List<Integer> ar) {
         int a = 0;
@@ -8,6 +10,32 @@ class Result {
             }else{
                 list.remove(ar.get(i));
                 a++;
+            }
+        }
+        return a;
+    }
+}
+
+
+Dynamic Array:
+
+class Result {
+    public static List<Integer> dynamicArray(int n, List<List<Integer>> queries) {
+        List<Integer> a = new ArrayList<>();
+        int s = 0;
+        List<List<Integer>> arr = new ArrayList<>();
+        for(int i=0; i<n; i++){
+            List<Integer> b = new ArrayList<>();
+            arr.add(b);
+        } 
+        for(int i=0; i<queries.size(); i++){
+            int idx = (queries.get(i).get(1)^s)%n;
+            if(queries.get(i).get(0) == 1){
+                arr.get(idx).add(queries.get(i).get(2));
+            }
+            else{
+                s = arr.get(idx).get(queries.get(i).get(2)%arr.get(idx).size());
+                a.add(s);
             }
         }
         return a;
